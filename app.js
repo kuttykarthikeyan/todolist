@@ -101,7 +101,7 @@ if(listName==="Today"){
   })
   
 }
-else{
+else{ 
   List.findOneAndUpdate({name:listName},{$pull:{items:{_id:checkedItemId}}},(err,foundlist)=>{
     if(!err){
       res.redirect("/"+listName);
@@ -144,6 +144,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, function() {
   console.log("Server started on port 3000");
 });
